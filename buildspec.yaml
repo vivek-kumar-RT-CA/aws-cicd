@@ -36,4 +36,5 @@ artifacts:
   files:
     - imagedefinitions.json
     - target/course-service.jar
+    - appspec.yml
 
