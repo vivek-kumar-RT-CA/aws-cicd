@@ -5,5 +5,5 @@ Resources:
       Properties:
         TaskDefinition: "arn:aws:ecs:us-west-2:986672551393:task-definition/aws-ecs-taskdefiniton-r4r-new-2027:1"
         LoadBalancerInfo:
-          ContainerName: "nodeapp-container"
+          ContainerName: "javatechie-registry"
           ContainerPort: 8080
