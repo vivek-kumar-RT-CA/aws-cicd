@@ -3,26 +3,10 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "taskdefinition.json"
+        TaskDefinition: "taskdefinition.json"  # This should be a path to a JSON file generated during your build process
         LoadBalancerInfo:
           ContainerName: "javatechie-registry"
           ContainerPort: 8080
-Hooks:
-  BeforeInstall:
-    - location: "scripts/pre_install.sh"
-      timeout: 300
-      runas: "root"
-  AfterInstall:
-    - location: "scripts/post_install.sh"
-      timeout: 300
-      runas: "root"
-  ApplicationStart:
-    - location: "scripts/start_application.sh"
-      timeout: 300
-      runas: "root"
-  ValidateService:
-    - location: "scripts/validate_service.sh"
-      timeout: 300
-      runas: "root"
+
 
 
