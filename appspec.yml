@@ -3,7 +3,25 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "arn:aws:ecs:us-west-2:986672551393:task-definition/aws-ecs-taskdefiniton-r4r-new-2028:1"
+        TaskDefinition: "taskdefinition.json"
         LoadBalancerInfo:
           ContainerName: "javatechie-registry"
-          ContainerPort: 8080
+          ContainerPort: 80  # Adjust this port according to your application's requirements
+Hooks:
+  BeforeInstall:
+    - location: "scripts/pre_install.sh"
+      timeout: 300
+      runas: "root"
+  AfterInstall:
+    - location: "scripts/post_install.sh"
+      timeout: 300
+      runas: "root"
+  ApplicationStart:
+    - location: "scripts/start_application.sh"
+      timeout: 300
+      runas: "root"
+  ValidateService:
+    - location: "scripts/validate_service.sh"
+      timeout: 300
+      runas: "root"
+
