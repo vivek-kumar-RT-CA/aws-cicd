@@ -6,7 +6,7 @@ Resources:
         TaskDefinition: "taskdefinition.json"
         LoadBalancerInfo:
           ContainerName: "javatechie-registry"
-          ContainerPort: 80  # Adjust this port according to your application's requirements
+          ContainerPort: 8080
 Hooks:
   BeforeInstall:
     - location: "scripts/pre_install.sh"
@@ -24,4 +24,5 @@ Hooks:
     - location: "scripts/validate_service.sh"
       timeout: 300
       runas: "root"
+
 
